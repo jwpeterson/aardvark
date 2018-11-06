@@ -18,6 +18,13 @@
   [../]
 []
 
+[Materials]
+  [kmat]
+    type = KMaterial
+    u = u
+  []
+[]
+
 [BCs]
   [./all]
     type = NeumannBC

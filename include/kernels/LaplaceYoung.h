@@ -22,7 +22,8 @@ protected:
   virtual Real computeQpJacobian() override;
 
   const Real & _kappa;
-  Real k() const;
+  // Real k() const;
+  const MaterialProperty<Real> & _k;
 };
 
 #endif /* LAPLACEYOUNG_H */
