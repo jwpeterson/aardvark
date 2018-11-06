@@ -18,15 +18,17 @@ LaplaceYoung::LaplaceYoung(const InputParameters & parameters) :
   _k(getMaterialProperty<Real>("k"))
 {}
 
-// Real 
-// LaplaceYoung::k() const
-// {
-//   return 1. / std::sqrt(1. + _grad_u[_qp] * _grad_u[_qp]);
-// }
+Real 
+LaplaceYoung::k() const
+{
+  return 1. / std::sqrt(1. + _grad_u[_qp] * _grad_u[_qp]);
+}
 
 Real
 LaplaceYoung::computeQpResidual()
 {
+  // std::cout << "k from Material: " << _k[_qp] << std::endl;
+  // std::cout << "k from helper function: " << k() << std::endl;
   return _k[_qp] * _grad_u[_qp] * _grad_test[_i][_qp]
     + _kappa * _u[_qp] * _test[_i][_qp];
 }
